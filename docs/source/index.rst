@@ -9,8 +9,10 @@ Welcome to Deepair's documentation!
 **Deepair** (/diːp er/) is a Python library that have reliable implementations of Deep reinforcement learning algorithms.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+
+   install
+
 
 
 
