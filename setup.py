@@ -7,6 +7,9 @@ from setuptools import setup
 with open('README.md', 'r') as f:
     readme = f.read()
 
+with open("./requirements.txt", "r") as f:
+    required = f.read().splitlines()
+
 # package configuration - for reference see:
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#id9
 setup(
@@ -21,12 +24,7 @@ setup(
     packages=['deepair'],
     include_package_data=True,
     python_requires=">=3.7.*",
-    install_requires=[
-        "gym==0.21",
-        "numpy",
-        "cloudpickle",
-        "pandas",
-    ],
+    install_requires=required,
     license="MIT",
     zip_safe=False,
     entry_points={
