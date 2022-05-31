@@ -12,6 +12,8 @@ Welcome to Deepair's documentation!
    :maxdepth: 1
 
    install
+   modules
+
 
 
 
