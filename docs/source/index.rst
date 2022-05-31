@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to deepair's documentation!
+Welcome to Deepair's documentation!
 ===================================
+
+**Deepair** (/diːp er/) is a Python library that have reliable implementations of Deep reinforcement learning algorithms.
 
 .. toctree::
    :maxdepth: 2
