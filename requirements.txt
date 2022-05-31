@@ -1,5 +1,5 @@
 gym==0.24.0
-numpy==1.22.4
+numpy
 torch>=1.11
 cloudpickle
 pandas
