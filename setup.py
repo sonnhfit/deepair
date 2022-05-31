@@ -4,10 +4,10 @@
 from setuptools import setup
 
 # load the README file and use it as the long_description for PyPI
-with open('README.md', 'r') as f:
+with open('README.md', 'r', encoding="utf8") as f:
     readme = f.read()
 
-with open("./requirements.txt", "r") as f:
+with open("./requirements.txt", "r", encoding="utf8") as f:
     required = f.read().splitlines()
 
 # package configuration - for reference see:
