@@ -24,10 +24,8 @@ setup(
     install_requires=[
         "gym==0.21",
         "numpy",
-        "torch>=1.11",
         "cloudpickle",
         "pandas",
-        "matplotlib",
     ],
     license="MIT",
     zip_safe=False,
