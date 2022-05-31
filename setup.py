@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os
+# import os
 from setuptools import setup
 
 # load the README file and use it as the long_description for PyPI
