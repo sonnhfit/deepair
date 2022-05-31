@@ -21,7 +21,14 @@ setup(
     packages=['deepair'],
     include_package_data=True,
     python_requires=">=3.7.*",
-    install_requires=['numpy', 'requests'],
+    install_requires=[
+        "gym==0.21",
+        "numpy",
+        "torch>=1.11",
+        "cloudpickle",
+        "pandas",
+        "matplotlib",
+    ],
     license="MIT",
     zip_safe=False,
     entry_points={
