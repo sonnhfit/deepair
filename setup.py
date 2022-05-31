@@ -18,7 +18,7 @@ setup(
     author="Son Nguyen Huu",
     author_email="sonnhfit@gmail.com",
     url="https://github.com/sonnhfit/deepair",
-    packages=[],
+    packages=['deepair'],
     include_package_data=True,
     python_requires=">=3.7.*",
     install_requires=['numpy', 'requests'],
