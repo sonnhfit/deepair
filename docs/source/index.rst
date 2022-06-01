@@ -12,6 +12,10 @@ Welcome to Deepair's documentation!
    :maxdepth: 1
 
    install
+   tutorial
+   rlalgorithms
+   custom_technique
+   developer_guides
    modules
 
 
