@@ -1,4 +1,7 @@
+import io
+import pathlib
 from abc import ABC, abstractmethod
+from typing import Union
 
 
 class BaseAlgo(ABC):
@@ -8,6 +11,8 @@ class BaseAlgo(ABC):
         self.policy = None
         self.env = None
         self._logger = None
+        self.gpu_number = 0
+        self.device = 'cpu'
         self.config_parser(config)
 
     @abstractmethod
@@ -18,17 +23,26 @@ class BaseAlgo(ABC):
     def train(self):
         pass
 
+    @abstractmethod
     def predict(self):
         pass
 
     def get_env(self):
+        return self.env
+
+    def set_env(self, env, reset: bool = True) -> None:
+        self.env = env
+        if reset:
+            self.env.reset()
+
+    def load(
+        self,
+        path: Union[str, pathlib.Path, io.BufferedIOBase]
+    ):
         pass
 
-    def set_env(self):
-        pass
-
-    def load(self):
-        pass
-
-    def save(self):
+    def save(
+        self,
+        path: Union[str, pathlib.Path, io.BufferedIOBase]
+    ):
         pass
