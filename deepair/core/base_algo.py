@@ -8,9 +8,10 @@ class BaseAlgo(ABC):
         self.policy = None
         self.env = None
         self._logger = None
-        self._config_parser(config)
+        self.config_parser(config)
 
-    def _config_parser(self, config):
+    @abstractmethod
+    def config_parser(self, config):
         pass
 
     @abstractmethod
