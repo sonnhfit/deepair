@@ -1,5 +1,10 @@
 # Deepair is a Deep Reinforcement Learning library
+
+[![Documentation Status](https://readthedocs.org/projects/deepair/badge/?version=latest)](https://deepair.readthedocs.io/en/latest/?badge=latest)
+
 Deepair implementations of reinforcement learning algorithms. It focus on DRL algorithms and implementing the latest advancements in DRL. Highly customizable support for training processes. Suitable for the research and application of the latest technologies in reinforcement learning.
+
+
 
 # Features
 
