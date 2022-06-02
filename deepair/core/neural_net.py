@@ -1,6 +1,6 @@
 from typing import List, Type
 
-from torch import nn
+from torch import nn # pylint: disable=import-error
 
 
 def make_neural_net(
