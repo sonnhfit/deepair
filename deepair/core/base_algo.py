@@ -16,7 +16,7 @@ class BaseAlgo(ABC):
         self.config_parser(config)
 
     @abstractmethod
-    def config_parser(self, config):
+    def config_parser(self, config) -> None:
         pass
 
     @abstractmethod
