@@ -8,7 +8,7 @@ class BaseAlgo(ABC):
 
     def __init__(self, config):
 
-        self.policy = None
+        self.policy_network = None
         self.env = None
         self._logger = None
         self.gpu_number = 0
@@ -21,6 +21,9 @@ class BaseAlgo(ABC):
 
     @abstractmethod
     def train(self):
+        pass
+
+    def learn(self):
         pass
 
     @abstractmethod

@@ -1,10 +1,14 @@
 
+import copy
 from deepair.core.base_algo import BaseAlgo
 
 
 class DQN(BaseAlgo):
     def __init__(self, config):
         super().__init__(config=config)
+
+        self.policy_network = None
+        self.target_network = copy.deepcopy(self.policy_network)
 
     def config_parser(self, config) -> None:
         """
@@ -27,7 +31,6 @@ class DQN(BaseAlgo):
             "grad_clip": None,
         }
         """
-
         self.prioritized_replay = config.get('prioritized_replay')
         self.hiddens = config.get('hiddens')
         self.lr = config.get('lr') # pylint: disable=C0103
