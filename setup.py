@@ -33,7 +33,7 @@ setup(
     description="PyTorch implementations of Deep reinforcement learning algorithms.",
     long_description=readme,
     long_description_content_type='text/markdown',
-    version="0.1.3",
+    version=__version__,
     author="Son Nguyen Huu",
     author_email="sonnhfit@gmail.com",
     url="https://github.com/sonnhfit/deepair",
