@@ -213,7 +213,7 @@ class Rainbow:
 
         return loss.item()
         
-    def train(self, num_frames: int, plotting_interval: int = 200):
+    def train(self, timesteps: int, plotting_interval: int = 200):
         """Train the agent."""
         assert self.env == None, "Env is None, Only predict action"
 
@@ -225,7 +225,7 @@ class Rainbow:
         scores = []
         score = 0
 
-        for frame_idx in range(1, num_frames + 1):
+        for frame_idx in range(1, timesteps + 1):
             action = self.select_action(state)
             next_state, reward, done = self.step(action)
 
@@ -235,7 +235,7 @@ class Rainbow:
             # NoisyNet: removed decrease of epsilon
             
             # PER: increase beta
-            fraction = min(frame_idx / num_frames, 1.0)
+            fraction = min(frame_idx / timesteps, 1.0)
             self.beta = self.beta + fraction * (1.0 - self.beta)
 
             # if episode ends
@@ -260,13 +260,14 @@ class Rainbow:
                 
         self.env.close()
                 
-    def test(self, video_folder: str) -> None:
+    def test(self, video_folder: str = None) -> None:
         """Test the agent."""
         self.is_test = True
         
         # for recording a video
         naive_env = self.env
-        self.env = gym.wrappers.RecordVideo(self.env, video_folder=video_folder)
+        if video_folder != None:
+            self.env = gym.wrappers.RecordVideo(self.env, video_folder=video_folder)
         
         state = self.env.reset()
         done = False
