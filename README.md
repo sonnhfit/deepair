@@ -50,7 +50,7 @@ while not done:
 print("score: ", score)
 ```
 
-![rainbow lunalander env](https://github.com/sonnhfit/deepair/blob/main/docs/source/_static/img/rainbow_lunalander.gif)
+![rainbow lunalander env](docs/source/_static/img/rainbow_lunalander.gif)
 
 # Implemented Algorithms
 
