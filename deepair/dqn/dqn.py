@@ -16,11 +16,12 @@ import torch.optim as optim
 from torch.nn.utils import clip_grad_norm_
 from IPython.display import clear_output
 
-from deepair.dqn.replay import PrioritizedReplayBuffer, ReplayBuffer
+from deepair.common.replay import ReplayBuffer, PrioritizedReplayBuffer
 from deepair.dqn.network import Network
 
 
 class Rainbow:
+
     """Rainbow DQN Agent interacting with environment.
     
     Attribute:

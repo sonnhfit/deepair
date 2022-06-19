@@ -3,6 +3,7 @@ import random
 from collections import deque
 from typing import Deque, Dict, List, Tuple
 import numpy as np
+
 from deepair.dqn.utils import SumSegmentTree, MinSegmentTree
 
 
