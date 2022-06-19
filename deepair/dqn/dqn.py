@@ -46,10 +46,10 @@ class Rainbow:
 
     def __init__(
         self, 
-        env: gym.Env,
-        memory_size: int,
-        batch_size: int,
-        target_update: int,
+        env: gym.Env = None,
+        memory_size: int = 10000,
+        batch_size: int = 32,
+        target_update: int = 4,
         gamma: float = 0.99,
         # PER parameters
         alpha: float = 0.2,
@@ -215,6 +215,8 @@ class Rainbow:
         
     def train(self, num_frames: int, plotting_interval: int = 200):
         """Train the agent."""
+        assert self.env == None, "Env is None, Only predict action"
+
         self.is_test = False
         
         state = self.env.reset()
