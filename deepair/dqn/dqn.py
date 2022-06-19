@@ -80,6 +80,7 @@ class Rainbow(BaseAlgo):
             atom_size (int): the unit number of support
             n_step (int): step number to calculate n-step td error
         """
+        super().__init__(env=env)
         obs_dim = env.observation_space.shape[0]
         action_dim = env.action_space.n
         
