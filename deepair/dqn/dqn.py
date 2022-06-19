@@ -18,9 +18,10 @@ from IPython.display import clear_output
 
 from deepair.common.replay import ReplayBuffer, PrioritizedReplayBuffer
 from deepair.dqn.network import Network
+from deepair.common.base_algo import BaseAlgo
 
 
-class Rainbow:
+class Rainbow(BaseAlgo):
 
     """Rainbow DQN Agent interacting with environment.
     
@@ -92,7 +93,6 @@ class Rainbow:
         self.device = torch.device(
             "cuda" if torch.cuda.is_available() else "cpu"
         )
-        print(self.device)
         
         # PER
         # memory for 1-step Learning

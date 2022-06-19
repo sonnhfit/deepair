@@ -26,7 +26,6 @@ class BaseAlgo(ABC):
         training process
         """
     
-    @abstractmethod
     def load(self,
         path: Union[str, pathlib.Path], 
         env: gym.Env=None, 
