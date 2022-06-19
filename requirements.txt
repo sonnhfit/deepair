@@ -5,6 +5,7 @@ cloudpickle
 pandas
 tqdm
 
+ipython
 pylint
 # docs 
 sphinx-material
