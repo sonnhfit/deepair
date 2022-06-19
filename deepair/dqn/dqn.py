@@ -336,7 +336,7 @@ class Rainbow(BaseAlgo):
 
     def get_torch_save_params(self):
 
-        state_dicts = ["dqn", "dqn_target", "support"]
+        state_dicts = ["dqn", "dqn_target"]
         return state_dicts, []
 
     def _target_hard_update(self):
