@@ -2,6 +2,7 @@
 
 # import os
 from setuptools import setup, find_packages
+from deepair.version import __version__
 
 # load the README file and use it as the long_description for PyPI
 with open('README.md', 'r', encoding="utf8") as f:
@@ -32,7 +33,7 @@ setup(
     description="PyTorch implementations of Deep reinforcement learning algorithms.",
     long_description=readme,
     long_description_content_type='text/markdown',
-    version="0.1.3",
+    version=__version__,
     author="Son Nguyen Huu",
     author_email="sonnhfit@gmail.com",
     url="https://github.com/sonnhfit/deepair",
