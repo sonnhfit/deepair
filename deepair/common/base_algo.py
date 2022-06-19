@@ -20,7 +20,8 @@ class BaseAlgo(ABC):
         self.env = env
 
     
-    def load(self,
+    @classmethod
+    def load(cls,
         path: Union[str, pathlib.Path], 
         env: gym.Env=None, 
         device: str='cpu',
