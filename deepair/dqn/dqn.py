@@ -334,6 +334,11 @@ class Rainbow(BaseAlgo):
 
         return elementwise_loss
 
+    def get_torch_save_params(self):
+
+        state_dicts = ["dqn", "dqn_target", "support"]
+        return state_dicts, []
+
     def _target_hard_update(self):
         """Hard update: target <- local."""
         self.dqn_target.load_state_dict(self.dqn.state_dict())

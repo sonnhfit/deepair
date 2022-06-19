@@ -18,7 +18,7 @@ class BaseAlgo(ABC):
         env: gym.Env = None
     ):
         self.env = env
-        
+
     
     def load(self,
         path: Union[str, pathlib.Path], 
@@ -82,7 +82,7 @@ class BaseAlgo(ABC):
         if include is not None:
             exclude = exclude.difference(include)
 
-        state_dicts_names, torch_variable_names = self._get_torch_save_params()
+        state_dicts_names, torch_variable_names = self.get_torch_save_params()
         all_pytorch_variables = state_dicts_names + torch_variable_names
         for torch_var in all_pytorch_variables:
             # We need to get only the name of the top most module as we'll remove that
@@ -120,7 +120,7 @@ class BaseAlgo(ABC):
             "is_test"
         ]
 
-    def _get_torch_save_params(self) -> Tuple[List[str], List[str]]:
+    def get_torch_save_params(self) -> Tuple[List[str], List[str]]:
         """
         Get the name of the torch variables that will be saved with
         PyTorch ``th.save``, ``th.load`` and ``state_dicts`` instead of the default
@@ -132,7 +132,7 @@ class BaseAlgo(ABC):
             List of Torch variables whose state dicts to save (e.g. th.nn.Modules),
             and list of other Torch variables to store with ``th.save``.
         """
-        state_dicts = ["net"]
+        state_dicts = []
 
         return state_dicts, []
 
@@ -143,7 +143,7 @@ class BaseAlgo(ABC):
         critics (value functions) and policies (pi functions).
         :return: Mapping of from names of the objects to PyTorch state-dicts.
         """
-        state_dicts_names, _ = self._get_torch_save_params()
+        state_dicts_names, _ = self.get_torch_save_params()
         params = {}
         for name in state_dicts_names:
             attr = recursive_getattr(self, name)
@@ -177,7 +177,7 @@ class BaseAlgo(ABC):
         # Keep track which objects were updated.
         # `_get_torch_save_params` returns [params, other_pytorch_variables].
         # We are only interested in former here.
-        objects_needing_update = set(self._get_torch_save_params()[0])
+        objects_needing_update = set(self.get_torch_save_params()[0])
         updated_objects = set()
 
         for name in params:
