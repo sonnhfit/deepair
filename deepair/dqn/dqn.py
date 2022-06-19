@@ -18,9 +18,10 @@ from IPython.display import clear_output
 
 from deepair.common.replay import ReplayBuffer, PrioritizedReplayBuffer
 from deepair.dqn.network import Network
+from deepair.common.base_algo import BaseAlgo
 
 
-class Rainbow:
+class Rainbow(BaseAlgo):
 
     """Rainbow DQN Agent interacting with environment.
     
@@ -79,10 +80,13 @@ class Rainbow:
             atom_size (int): the unit number of support
             n_step (int): step number to calculate n-step td error
         """
+        super().__init__(env=env)
+
+        self.env = env
         obs_dim = env.observation_space.shape[0]
         action_dim = env.action_space.n
         
-        self.env = env
+        
         self.batch_size = batch_size
         self.target_update = target_update
         self.gamma = gamma
@@ -92,7 +96,6 @@ class Rainbow:
         self.device = torch.device(
             "cuda" if torch.cuda.is_available() else "cpu"
         )
-        print(self.device)
         
         # PER
         # memory for 1-step Learning
@@ -215,7 +218,7 @@ class Rainbow:
         
     def train(self, timesteps: int, plotting_interval: int = 200):
         """Train the agent."""
-        assert self.env == None, "Env is None, Only predict action"
+        assert self.env != None, "Env is None, Only predict action"
 
         self.is_test = False
         
@@ -332,6 +335,11 @@ class Rainbow:
         elementwise_loss = -(proj_dist * log_p).sum(1)
 
         return elementwise_loss
+
+    def get_torch_save_params(self):
+
+        state_dicts = ["dqn", "dqn_target"]
+        return state_dicts, []
 
     def _target_hard_update(self):
         """Hard update: target <- local."""
