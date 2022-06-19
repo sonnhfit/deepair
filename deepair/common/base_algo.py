@@ -35,9 +35,9 @@ class BaseAlgo(ABC):
         model = cls(  # pylint: disable=undefined-variable
             env=env
         )
-
-        # load parameters
-        model.__dict__.update(data)
+        if data != None:
+            # load parameters
+            model.__dict__.update(data)
 
         # put state_dicts back in place
         model.set_parameters(params, exact_match=True, device=device)
