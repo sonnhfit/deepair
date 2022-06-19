@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # load the README file and use it as the long_description for PyPI
 with open('README.md', 'r', encoding="utf8") as f:
@@ -13,7 +13,7 @@ with open("./requirements.txt", "r", encoding="utf8") as f:
 # package configuration - for reference see:
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#id9
 setup(
-    name="Deepair",
+    name="deepair",
     description="PyTorch implementations of Deep reinforcement learning algorithms.",
     long_description=readme,
     long_description_content_type='text/markdown',
@@ -21,7 +21,7 @@ setup(
     author="Son Nguyen Huu",
     author_email="sonnhfit@gmail.com",
     url="https://github.com/sonnhfit/deepair",
-    packages=['deepair'],
+    packages=find_packages(),
     include_package_data=True,
     python_requires=">=3.7.*",
     install_requires=required,
