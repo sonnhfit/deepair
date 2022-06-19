@@ -2,6 +2,7 @@
 
 # import os
 from setuptools import setup, find_packages
+from deepair.version import __version__
 
 # load the README file and use it as the long_description for PyPI
 with open('README.md', 'r', encoding="utf8") as f:
