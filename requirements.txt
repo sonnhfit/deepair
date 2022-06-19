@@ -1,4 +1,4 @@
-gym==0.24.0
+gym
 numpy
 torch>=1.11
 cloudpickle

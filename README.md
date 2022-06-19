@@ -17,6 +17,11 @@ Documentation is available: [https://deepair.readthedocs.io/](https://deepair.re
 pip install deepair
 ```
 
+or
+```
+pip install git+https://github.com/sonnhfit/deepair.git
+```
+
 # Example
 
 # Implemented Algorithms
