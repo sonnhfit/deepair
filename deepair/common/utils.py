@@ -16,6 +16,7 @@ import warnings
 import cloudpickle
 import torch as th
 import base64
+import gym
 
 
 class SegmentTree:
@@ -537,3 +538,21 @@ def load_from_zip_file(
         # load_path wasn't a zip file
         raise ValueError(f"Error: the file {load_path} wasn't a zip-file")
     return data, params, pytorch_variables
+
+
+def check_for_correct_spaces(env: gym.Env, observation_space: gym.spaces.Space, action_space: gym.spaces.Space) -> None:
+    """
+    Checks that the environment has same spaces as provided ones. Used by BaseAlgorithm to check if
+    spaces match after loading the model with given env.
+    Checked parameters:
+    - observation_space
+    - action_space
+    :param env: Environment to check for valid spaces
+    :param observation_space: Observation space to check against
+    :param action_space: Action space to check against
+    """
+    if observation_space != env.observation_space:
+        raise ValueError(f"Observation spaces do not match: {observation_space} != {env.observation_space}")
+    if action_space != env.action_space:
+        raise ValueError(f"Action spaces do not match: {action_space} != {env.action_space}")
+
