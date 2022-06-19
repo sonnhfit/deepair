@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 with open('README.md', 'r', encoding="utf8") as f:
     readme = f.read()
 
-with open("./requirements.txt", "r", encoding="utf8") as f:
+with open("requirements.txt", "r", encoding="utf8") as f:
     required = f.read().splitlines()
 
 # package configuration - for reference see:
