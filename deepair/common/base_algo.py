@@ -18,13 +18,7 @@ class BaseAlgo(ABC):
         env: gym.Env = None
     ):
         self.env = env
-
-
-    @abstractmethod
-    def train(self, timesteps: int, plotting_interval: int=200, eval_env: gym.Env=None):
-        """
-        training process
-        """
+        
     
     def load(self,
         path: Union[str, pathlib.Path], 
