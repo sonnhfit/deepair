@@ -25,6 +25,8 @@ pip install git+https://github.com/sonnhfit/deepair.git
 
 # Example
 
+![rainbow lunalander env](docs/source/_static/img/rainbow_lunalander.gif)
+
 # Implemented Algorithms
 
 # Tutorial

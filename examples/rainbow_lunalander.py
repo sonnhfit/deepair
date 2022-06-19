@@ -15,7 +15,7 @@ done = False
 score = 0
 
 while not done:
-    action = rain.select_action(state)
+    action = rain.select_action(state, deterministic=True)
     next_state, reward, done = env.step(action)
 
     state = next_state

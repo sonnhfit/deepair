@@ -137,7 +137,7 @@ class Rainbow:
         # mode: train / test
         self.is_test = False
 
-    def select_action(self, state: np.ndarray) -> np.ndarray:
+    def select_action(self, state: np.ndarray, deterministic=False) -> np.ndarray:
         """Select an action from the input state."""
         # NoisyNet: no epsilon greedy action selection
         selected_action = self.dqn(
@@ -145,7 +145,7 @@ class Rainbow:
         ).argmax()
         selected_action = selected_action.detach().cpu().numpy()
         
-        if not self.is_test:
+        if not deterministic:
             self.transition = [state, selected_action]
         
         return selected_action
