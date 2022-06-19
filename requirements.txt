@@ -5,7 +5,7 @@ cloudpickle
 pandas
 tqdm
 
-
+pylint
 # docs 
 sphinx-material
 numpydoc
