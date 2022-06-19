@@ -216,7 +216,7 @@ class Rainbow(BaseAlgo):
         
     def train(self, timesteps: int, plotting_interval: int = 200):
         """Train the agent."""
-        assert self.env == None, "Env is None, Only predict action"
+        assert self.env != None, "Env is None, Only predict action"
 
         self.is_test = False
         
