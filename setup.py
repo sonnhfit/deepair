@@ -7,8 +7,23 @@ from setuptools import setup, find_packages
 with open('README.md', 'r', encoding="utf8") as f:
     readme = f.read()
 
-with open("requirements.txt", "r", encoding="utf8") as f:
-    required = f.read().splitlines()
+install_requires =[
+    'gym',
+    'numpy',
+    'torch>=1.11',
+    'cloudpickle',
+    'pandas',
+    'tqdm',
+    'ipython',
+    'pylint',
+    'sphinx-material',
+    'numpydoc',
+    'nbsphinx',
+    'recommonmark',
+    'sphinx-markdown-tables',
+    'sphinx_copybutton',
+    'readthedocs-sphinx-search'
+]
 
 # package configuration - for reference see:
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#id9
@@ -24,7 +39,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     python_requires=">=3.7.*",
-    install_requires=required,
+    install_requires=install_requires,
     license="MIT",
     zip_safe=False,
     entry_points={
