@@ -81,6 +81,7 @@ class Rainbow(BaseAlgo):
             n_step (int): step number to calculate n-step td error
         """
         super().__init__(env=env)
+        print("env la: ", env)
 
         self.env = env
         obs_dim = env.observation_space.shape[0]
