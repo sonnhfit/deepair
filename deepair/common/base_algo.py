@@ -30,9 +30,6 @@ class BaseAlgo(ABC):
             path, device=device, custom_objects=custom_objects
         )
 
-        if "env" in data:
-            self.env = data["env"]
-
         # noinspection PyArgumentList
         model = cls(  # pylint: disable=undefined-variable
             env=env
