@@ -8,32 +8,45 @@ Welcome to Deepair's documentation!
 
 **Deepair** (/diːp er/) is a Python library that have reliable implementations of Deep reinforcement learning algorithms.
 
+Simple way to start
+-------------------
+Install deepair with pip
 
-```python
-import gym
-from deepair.dqn import Rainbow
+.. code-block:: bash
 
-env = gym.make('LunarLander-v2')
+   pip install deepair
 
-rain = Rainbow(env=env, memory_size=10000, batch_size=32, target_update=256)
+start with gym env
 
-rain.train(timesteps=200000)
+.. code-block:: python
 
-# test
-state = env.reset()
-done = False
-score = 0
+   import gym
+   from deepair.dqn import Rainbow
 
-while not done:
-    action = rain.select_action(state, deterministic=True)
-    next_state, reward, done, info = env.step(action)
+   env = gym.make('LunarLander-v2')
 
-    state = next_state
-    score += reward
+   rain = Rainbow(env=env, memory_size=10000, batch_size=32, target_update=256)
 
-print("score: ", score)
-```
-![rainbow lunalander env](docs/source/_static/img/rainbow_lunalander.gif)
+   rain.train(timesteps=200000)
+
+   # test
+   state = env.reset()
+   done = False
+   score = 0
+
+   while not done:
+      action = rain.select_action(state, deterministic=True)
+      next_state, reward, done, info = env.step(action)
+
+      state = next_state
+      score += reward
+
+   print("score: ", score)
+
+.. image:: _static/img/rainbow_lunalander.gif
+   :width: 600
+
+
 .. toctree::
    :maxdepth: 1
 
