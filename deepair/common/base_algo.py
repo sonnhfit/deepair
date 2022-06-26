@@ -31,6 +31,14 @@ class BaseAlgo(ABC):
             path, device=device, custom_objects=custom_objects
         )
 
+        if env is not None:
+            # Wrap first if needed
+            env = env
+        else:
+            # Use stored env, if one exists. If not, continue as is (can be used for predict)
+            if "env" in data:
+                env = data["env"]
+
         # noinspection PyArgumentList
         model = cls(  # pylint: disable=undefined-variable
             env=env
@@ -103,7 +111,6 @@ class BaseAlgo(ABC):
     def _excluded_save_params(self) -> List[str]:
         return [
             "device",
-            "env",
             "eval_env",
             "memory",
             "memory_n",
