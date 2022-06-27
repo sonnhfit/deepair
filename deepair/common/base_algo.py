@@ -46,8 +46,9 @@ class BaseAlgo(ABC):
             env=env
         )
         if data != None:
-            model.obs_dim = data['obs_dim']
-            model.action_dim = data['action_dim']
+            if "obs_dim" in data and "action_dim" in data:
+                model.obs_dim = data['obs_dim']
+                model.action_dim = data['action_dim']
 
             # load parameters
             model.__dict__.update(data)

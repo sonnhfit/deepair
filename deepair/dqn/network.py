@@ -30,11 +30,12 @@ class Network(nn.Module):
         
         self.support = support
         self.out_dim = out_dim
+        self.in_dim = in_dim
         self.atom_size = atom_size
 
         # set common feature layer
         self.feature_layer = nn.Sequential(
-            nn.Linear(in_dim, 128), 
+            nn.Linear(self.in_dim, 128), 
             nn.ReLU(),
         )
         
