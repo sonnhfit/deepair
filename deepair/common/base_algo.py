@@ -109,7 +109,7 @@ class BaseAlgo(ABC):
 
 
     def _excluded_save_params(self) -> List[str]:
-        return [
+        return [ 
             "device",
             "eval_env",
             "env",

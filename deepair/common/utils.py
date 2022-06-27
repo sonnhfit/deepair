@@ -238,7 +238,7 @@ def json_to_data(json_string: str, custom_objects: Optional[Dict[str, Any]] = No
         else:
             # Read as it is
             return_data[data_key] = data_item
-    return 
+    return return_data 
 
 
 def is_json_serializable(item: Any) -> bool:
