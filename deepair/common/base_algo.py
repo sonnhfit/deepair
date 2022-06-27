@@ -20,10 +20,6 @@ class BaseAlgo(ABC):
         self.env = env
         self.obs_dim = None
         self.action_dim = None
-        
-        self.v_min = None
-        self.v_max = None
-        self.atom_size = None
 
     
     @classmethod
