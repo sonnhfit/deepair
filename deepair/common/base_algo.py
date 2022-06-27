@@ -18,6 +18,8 @@ class BaseAlgo(ABC):
         env: gym.Env = None
     ):
         self.env = env
+        self.obs_dim = None
+        self.action_dim = None
 
     
     @classmethod
@@ -44,6 +46,9 @@ class BaseAlgo(ABC):
             env=env
         )
         if data != None:
+            model.obs_dim = data['obs_dim']
+            model.action_dim = data['action_dim']
+
             # load parameters
             model.__dict__.update(data)
 
