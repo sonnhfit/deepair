@@ -112,6 +112,7 @@ class BaseAlgo(ABC):
         return [
             "device",
             "eval_env",
+            "env",
             "memory",
             "memory_n",
             "is_test"
