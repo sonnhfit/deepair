@@ -86,6 +86,9 @@ class Rainbow(BaseAlgo):
         if env != None:
             self.obs_dim = env.observation_space.shape[0]
             self.action_dim = env.action_space.n
+        else:
+            self.obs_dim = super().obs_dim
+            self.action_dim = super().action_dim
         
         
         self.batch_size = batch_size
