@@ -18,8 +18,8 @@ class BaseAlgo(ABC):
         env: gym.Env = None
     ):
         self.env = env
-        self.obs_dim = None
-        self.action_dim = None
+        self.obs_dim = 1
+        self.action_dim = 1
 
     
     @classmethod
