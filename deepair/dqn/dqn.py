@@ -61,7 +61,7 @@ class Rainbow(BaseAlgo):
         v_max: float = 10.0,
         atom_size: int = 51,
         # N-step Learning
-        n_step: int = 3,
+        n_step: int = 3
     ):
         """Initialization.
         

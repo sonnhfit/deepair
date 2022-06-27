@@ -40,6 +40,8 @@ class BaseAlgo(ABC):
             # Use stored env, if one exists. If not, continue as is (can be used for predict)
             if "env" in data:
                 env = data["env"]
+            
+            # make env
 
         # noinspection PyArgumentList
         model = cls(  # pylint: disable=undefined-variable
