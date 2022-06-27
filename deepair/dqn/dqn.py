@@ -102,7 +102,7 @@ class Rainbow(BaseAlgo):
         self.beta = beta
         self.prior_eps = prior_eps
         self.memory = PrioritizedReplayBuffer(
-            obs_dim, memory_size, batch_size, alpha=alpha
+            self.obs_dim, memory_size, batch_size, alpha=alpha
         )
         
         # memory for N-step Learning
@@ -110,7 +110,7 @@ class Rainbow(BaseAlgo):
         if self.use_n_step:
             self.n_step = n_step
             self.memory_n = ReplayBuffer(
-                obs_dim, memory_size, batch_size, n_step=n_step, gamma=gamma
+                self.obs_dim, memory_size, batch_size, n_step=n_step, gamma=gamma
             )
             
         # Categorical DQN parameters
@@ -123,10 +123,10 @@ class Rainbow(BaseAlgo):
 
         # networks: dqn, dqn_target
         self.dqn = Network(
-            obs_dim, action_dim, self.atom_size, self.support
+            self.obs_dim, self.action_dim, self.atom_size, self.support
         ).to(self.device)
         self.dqn_target = Network(
-            obs_dim, action_dim, self.atom_size, self.support
+            self.obs_dim, self.action_dim, self.atom_size, self.support
         ).to(self.device)
         self.dqn_target.load_state_dict(self.dqn.state_dict())
         self.dqn_target.eval()
