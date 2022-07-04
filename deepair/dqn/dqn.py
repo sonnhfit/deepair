@@ -19,6 +19,7 @@ from IPython.display import clear_output
 from deepair.common.replay import ReplayBuffer, PrioritizedReplayBuffer
 from deepair.dqn.network import Network
 from deepair.common.base_algo import BaseAlgo
+from deepair.common.callbacks import BaseCallback
 
 
 class Rainbow(BaseAlgo):
@@ -216,7 +217,7 @@ class Rainbow(BaseAlgo):
 
         return loss.item()
         
-    def train(self, timesteps: int, plotting_interval: int = 200):
+    def train(self, timesteps: int, plotting_interval: int = 200, callback: BaseCallback = None):
         """Train the agent."""
         assert self.env != None, "Env is None, Only predict action"
 
@@ -260,6 +261,9 @@ class Rainbow(BaseAlgo):
             # plotting
             if frame_idx % plotting_interval == 0:
                 self._plot(frame_idx, scores, losses)
+
+            if callback != None:
+                callback.on_step()
                 
         self.env.close()
                 
