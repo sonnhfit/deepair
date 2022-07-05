@@ -263,7 +263,7 @@ class Rainbow(BaseAlgo):
                 self._plot(frame_idx, scores, losses)
 
             if callback != None:
-                callback.on_step()
+                callback.on_step(model=self)
                 
         self.env.close()
                 
