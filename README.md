@@ -55,5 +55,7 @@ print("score: ", score)
 # Implemented Algorithms
 
 # Tutorial
+- save model 
+- load model
 
 # How To Contribute
